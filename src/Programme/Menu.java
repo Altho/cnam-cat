@@ -25,12 +25,26 @@ public class Menu {
             System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             System.out.println(" ");
             System.out.println("Que souhaitez vous faire ?");
+            System.out.println("---------------------");
+            System.out.println("Catalogue");
+            System.out.println("---------------------");
+            System.out.println(" ");
             System.out.println("1. Consulter le catalogue");
             System.out.println("2. Ajouter un article au catalogue");
             System.out.println("3. Rechercher nom par ID");
             System.out.println("4. Rechercher prix par ID ");
             System.out.println("5. Rechercher par nom ");
-            System.out.println("6. Quitter ");
+            System.out.println(" ");
+
+            System.out.println("---------------------");
+            System.out.println("Facturier");
+            System.out.println("---------------------");
+            System.out.println(" ");
+            System.out.println("6. Créer une nouvelle facture ");
+            System.out.println("7. Consulter la liste des factures ");
+            System.out.println(" ");
+            System.out.println("---------------------");
+            System.out.println("0. Quitter ");
 
             int choix = Terminal.lireInt();
 
@@ -51,6 +65,12 @@ public class Menu {
                     recherche();
                     break;
                 case 6:
+                    creerFacture();
+                    break;
+                case 7:
+                    afficherFactures();
+                    break;
+                case 0:
                     quitter = true;
                     break;
 
@@ -64,6 +84,20 @@ public class Menu {
 
 
         } while(quitter = false);
+    }
+
+    public static void afficherFactures(){
+        System.out.println("---------------------");
+        System.out.println("Facturier");
+        System.out.println("---------------------");
+        System.out.println(" ");
+        Programme.Facture.accesFactures();
+        menu();
+    }
+    public static void creerFacture(){
+        int factNum = Programme.Facture.nouvelleFacture()-1;
+        System.out.println("Facture "+ factNum+" créée");
+        menu();
     }
 
     public static void prix(){

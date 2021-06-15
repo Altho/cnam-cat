@@ -6,8 +6,8 @@ public class Facture {
 	* la 5eme ligne de la premiere facture par exemple nous utiliserons
 	* console.log (proTab[0][4]+" "+qteTab[0][4]);
 	* */
-	private static int[][] proTab = new int[5][3];
-	private static int[][] qteTab = new int[5][3];
+	private static int[][] proTab = new int[1][1];
+	private static int[][] qteTab = new int[1][1];
 	/*
 	 * Question 4.1 : D�finir un facturier (voir sujet)
 	 */
@@ -51,13 +51,22 @@ public class Facture {
 		qteTab=tempQte;
 
 
-	return 0;
+	return proTab.length;
 
 	}
 
+	public static int accesFactures() {
+		for(int i = 1; i< proTab.length; i++){
+		System.out.println("Facture "+ i);
+		System.out.println("Contient "+ proTab[i-1].length+ " produits uniques");}
+		System.out.println(" ");
+
+		return proTab.length;
+	};
+
 	private static void ajouterProduit(int numFacture, int numProduit,
 			int quantite) {
-
+		
 
 	}
 
