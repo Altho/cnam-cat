@@ -6,8 +6,8 @@ public class Facture {
 	* la 5eme ligne de la premiere facture par exemple nous utiliserons
 	* console.log (proTab[0][4]+" "+qteTab[0][4]);
 	* */
-	private static int[][] proTab = new int[0][0];
-	private static int[][] qteTab = new int[0][0];
+	private static int[][] proTab = new int[5][3];
+	private static int[][] qteTab = new int[5][3];
 	/*
 	 * Question 4.1 : D�finir un facturier (voir sujet)
 	 */

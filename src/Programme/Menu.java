@@ -2,7 +2,7 @@ package Programme;
 
 public class Menu {
     public static void main(String[] args) {
-        Programme.Facture.nouvelleFacture();
+        menu();
 
     }
 
@@ -86,7 +86,8 @@ public class Menu {
     public static void recherche(){
         System.out.println("Veuillez entrer le nom de l'article à rechercher");
         String result = Terminal.lireString();
-        int querry = Programme.Catalogue.chercher(result);
+        String resultUC = result.toUpperCase();
+        int querry = Programme.Catalogue.chercher(resultUC);
         if(querry == -1){
             System.out.println("Aucun resultat pour : "+ result);
         }

@@ -141,7 +141,7 @@ public class Catalogue {
 	 */
 	public static int chercher(String nom) {
 		for(int i = 0; i< tabNoms.length; i++){
-			if(nom.equals(tabNoms[i])){
+			if(nom.equals(tabNoms[i].toUpperCase())){
 				return i;
 			}
 
