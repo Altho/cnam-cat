@@ -76,9 +76,13 @@ public class Facture {
 		int temPro[] = new int[proTab[facture].length+1];
 		int tempQte[] = new int[qteTab[qteTab.length-1].length+1];
 
-		for(int i = 0; i<proTab.length; i++){
-			temPro[i] = proTab[facture][i];
+		System.out.println(temPro.length);
+		System.out.println(proTab[facture].length);
 
+
+		for(int i = 0; i<proTab[facture].length; i++){
+			temPro[i] = proTab[facture][i];
+			tempQte[i] = qteTab[facture][i];
 		}
 		temPro[temPro.length-1]=produit;
 		tempQte[tempQte.length-1]=qte;
@@ -109,10 +113,10 @@ public class Facture {
 		System.out.println(" ");
 
 
-		for (int i = 0; i< proTab.length; i++){
-			String produit = Catalogue.tabNoms[proTab[numFacture][i]];
-			int qte = qteTab[numFacture][i];
-			double prix = Catalogue.tabPrix[proTab[numFacture][i]];
+		for (int i = 0; i< proTab[numFacture-1].length; i++){
+			String produit = Catalogue.tabNoms[proTab[numFacture-1][i]];
+			int qte = qteTab[numFacture-1][i];
+			double prix = Catalogue.tabPrix[proTab[numFacture-1][i]];
 			double articleTotal =prix*qte;
 
 			total += articleTotal;

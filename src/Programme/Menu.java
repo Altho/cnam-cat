@@ -101,7 +101,7 @@ public class Menu {
         int produit= Terminal.lireInt();
         System.out.println("Veuillez entrer la quantité");
         int qte = Terminal.lireInt();
-        Programme.Facture.ajouterProduit(facture, produit,qte);
+        Programme.Facture.ajouterProduit(facture-1, produit,qte);
 
     }
 
@@ -114,13 +114,13 @@ public class Menu {
         menu();
     }
     public static void creerFacture(){
-        int factNum = Programme.Facture.nouvelleFacture()-1;
+        int factNum = Programme.Facture.nouvelleFacture();
         System.out.println("Facture "+ factNum+" créée");
         menu();
     }
 
     public static void montrerFacture(){
-        System.out.println("Veuillez entrer le numéro de facturee");
+        System.out.println("Veuillez entrer le numéro de facture");
         int num = Terminal.lireInt();
         Programme.Facture.afficherFacture(num);
     }
