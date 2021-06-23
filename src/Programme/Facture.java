@@ -64,11 +64,33 @@ public class Facture {
 		return proTab.length;
 	};
 
-	private static void ajouterProduit(int numFacture, int numProduit,
+	public static void ajouterProduit(int numFacture, int numProduit,
 			int quantite) {
-		
+		int facture = numFacture;
+		int produit = numProduit;
+		int qte = quantite;
 
+		proTab[facture][proTab.length-1] = produit;
+		qteTab[facture][proTab.length-1] = qte;
+
+		System.out.println(qte + " "+ Catalogue.tabNoms[produit]+" ajouté à la facture : "+ facture);
+
+		int temPro[][] = new int[proTab.length+1][proTab[0].length+1];
+		int tempQte[][] = new int[qteTab.length+1][qteTab[0].length+1];
+		for(int i = 0; i<proTab.length; i++){
+			for(int e =0; e<proTab[0].length; e++){
+				temPro[i][e]=proTab[i][e];
+				tempQte[i][e]=qteTab[i][e];
+			}
+
+
+		}
+		proTab=temPro;
+		qteTab=tempQte;
+		Programme.Menu.menu();
 	}
+
+
 
 	/**
 	 * Affiche une facture avec son num�ro, la liste des produits (nom du
@@ -78,9 +100,34 @@ public class Facture {
 	 * @param numFacture
 	 *            num�ro de la facture
 	 */
-	private static void afficherFacture(int numFacture) {
-		// TODO Question 4.4
+	public static void afficherFacture(int numFacture) {
+		double total = 0.0;
+		System.out.println("_______________");
+		System.out.println("|             |");
+		System.out.println("|  Facture " +numFacture+"   |");
+		System.out.println("|             |");
+		System.out.println("_______________");
+		System.out.println(" ");
 
+
+		for (int i = 0; i< proTab.length; i++){
+			String produit = Catalogue.tabNoms[proTab[numFacture][i]];
+			int qte = qteTab[numFacture][i];
+			double prix = Catalogue.tabPrix[proTab[numFacture][i]];
+			double articleTotal =prix*qte;
+
+			total += articleTotal;
+
+			System.out.println(produit);
+			System.out.println("Quantité : "+ qte);
+			System.out.println("Prix unitaire : "+ prix);
+			System.out.println("Total : "+ articleTotal+" Euros");
+
+			System.out.println("_______________");
+			System.out.println(" ");
+		}
+		System.out.println(" ");
+		System.out.println("TOTAL : "+total+" Euros.");
 	}
 
 	/**

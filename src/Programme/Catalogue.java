@@ -4,9 +4,9 @@ package Programme;
 
 
 public class Catalogue {
-	private static String[] tabNoms = { "Stylo bleu", "Stylo rouge",
+	 static String[] tabNoms = { "Stylo bleu", "Stylo rouge",
 			"Cahier petit format", "Cahier grand format" };
-	private static double[] tabPrix = { 1.2, 1.25, 2.00, 3.00 };
+	 static double[] tabPrix = { 1.2, 1.25, 2.00, 3.00 };
 
 	public static void main(String[] args) {
 		System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");

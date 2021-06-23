@@ -42,6 +42,8 @@ public class Menu {
             System.out.println(" ");
             System.out.println("6. Créer une nouvelle facture ");
             System.out.println("7. Consulter la liste des factures ");
+            System.out.println("8. Ajouter un produit à une facture ");
+            System.out.println("8. Afficher une facturee ");
             System.out.println(" ");
             System.out.println("---------------------");
             System.out.println("0. Quitter ");
@@ -70,6 +72,12 @@ public class Menu {
                 case 7:
                     afficherFactures();
                     break;
+                case 8:
+                    ajouterLigne();
+                    break;
+                case 9:
+                    montrerFacture();
+                    break;
                 case 0:
                     quitter = true;
                     break;
@@ -86,6 +94,17 @@ public class Menu {
         } while(quitter = false);
     }
 
+    public static void ajouterLigne(){
+        System.out.println("Veuillez entrer le numéro de facture");
+        int facture = Terminal.lireInt();
+        System.out.println("Veuillez entrer l'id du produit à ajouter");
+        int produit= Terminal.lireInt();
+        System.out.println("Veuillez entrer la quantité");
+        int qte = Terminal.lireInt();
+        Programme.Facture.ajouterProduit(facture, produit,qte);
+
+    }
+
     public static void afficherFactures(){
         System.out.println("---------------------");
         System.out.println("Facturier");
@@ -98,6 +117,12 @@ public class Menu {
         int factNum = Programme.Facture.nouvelleFacture()-1;
         System.out.println("Facture "+ factNum+" créée");
         menu();
+    }
+
+    public static void montrerFacture(){
+        System.out.println("Veuillez entrer le numéro de facturee");
+        int num = Terminal.lireInt();
+        Programme.Facture.afficherFacture(num);
     }
 
     public static void prix(){
