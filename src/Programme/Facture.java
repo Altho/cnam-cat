@@ -8,8 +8,8 @@ public class Facture {
 	* la 5eme ligne de la premiere facture par exemple nous utiliserons
 	* console.log (proTab[0][4]+" "+qteTab[0][4]);
 	* */
-	private static int[][] proTab = new int[1][1];
-	private static int[][] qteTab = new int[1][1];
+	private static int[][] proTab = new int[0][];
+	private static int[][] qteTab = new int[0][];
 	/*
 	 * Question 4.1 : D�finir un facturier (voir sujet)
 	 */
@@ -39,16 +39,18 @@ public class Facture {
 		System.out.println("Facture "+ proTab.length);
 		System.out.println("--------------------");
 		System.out.println(" ");
-		int temPro[][] = new int[proTab.length+1][proTab[0].length+1];
-		int tempQte[][] = new int[qteTab.length+1][qteTab[0].length+1];
+		int temPro[][] = new int[proTab.length+1][];
+		int tempQte[][] = new int[qteTab.length+1][];
+		temPro[temPro.length-1] = new int[0];
 		for(int i = 0; i<proTab.length; i++){
-			for(int e =0; e<proTab[0].length; e++){
-				temPro[i][e]=proTab[i][e];
-				tempQte[i][e]=qteTab[i][e];
-			}
+
+			temPro[i] = proTab[i];
+			tempQte[i] = qteTab[i];
 
 
 		}
+		temPro[temPro.length-1] = new int[0];
+		tempQte[tempQte.length-1] = new int[0];
 		proTab=temPro;
 		qteTab=tempQte;
 
@@ -69,32 +71,20 @@ public class Facture {
 		return proTab.length;
 	};
 
-	public static void ajouterProduit(int numFacture, int numProduit,
-			int quantite) {
-		int facture = numFacture;
-		int produit = numProduit;
-		int qte = quantite;
+	public static void ajouterProduit(int facture, int produit,
+			int qte) {
+		int temPro[] = new int[proTab[proTab.length-1].length+1];
+		int tempQte[] = new int[qteTab[qteTab.length-1].length+1];
 
-		proTab[facture][proTab.length-1] = produit;
-		qteTab[facture][proTab.length-1] = qte;
-
-		System.out.println(qte + " "+ Catalogue.tabNoms[produit]+" ajouté à la facture : "+ facture);
-
-		int temPro[][] = new int[proTab.length+1][proTab[0].length+1];
-		int tempQte[][] = new int[qteTab.length+1][qteTab[0].length+1];
 		for(int i = 0; i<proTab.length; i++){
-			for(int e =0; e<proTab[0].length; e++){
-				temPro[i][e]=proTab[i][e];
-				tempQte[i][e]=qteTab[i][e];
-			}
-
+			temPro[i] = proTab[proTab.length-1][i];
 
 		}
-		proTab=temPro;
-		qteTab=tempQte;
-		//TODO delete
-		System.out.println(Arrays.deepToString(proTab));
-		System.out.println(Arrays.deepToString(qteTab));
+		temPro[temPro.length-1]=produit;
+		tempQte[tempQte.length-1]=qte;
+		proTab[proTab.length-1]=temPro;
+		qteTab[qteTab.length-1]=tempQte;
+
 
 		Programme.Menu.menu();
 	}
