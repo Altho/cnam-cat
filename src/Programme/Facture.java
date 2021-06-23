@@ -1,5 +1,7 @@
 package Programme;
 
+import java.util.Arrays;
+
 public class Facture {
 	/*
 	* Pour chaque tableau, la première dimension correspond à la facture et la deuxième à la ligne. Pour obtenir
@@ -50,8 +52,11 @@ public class Facture {
 		proTab=temPro;
 		qteTab=tempQte;
 
+		//TODO delete
+		System.out.println(Arrays.deepToString(proTab));
+		System.out.println(Arrays.deepToString(qteTab));
 
-	return proTab.length;
+		return proTab.length;
 
 	}
 
@@ -87,6 +92,10 @@ public class Facture {
 		}
 		proTab=temPro;
 		qteTab=tempQte;
+		//TODO delete
+		System.out.println(Arrays.deepToString(proTab));
+		System.out.println(Arrays.deepToString(qteTab));
+
 		Programme.Menu.menu();
 	}
 
