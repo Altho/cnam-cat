@@ -73,11 +73,11 @@ public class Facture {
 
 	public static void ajouterProduit(int facture, int produit,
 			int qte) {
-		int temPro[] = new int[proTab[proTab.length-1].length+1];
+		int temPro[] = new int[proTab[facture].length+1];
 		int tempQte[] = new int[qteTab[qteTab.length-1].length+1];
 
 		for(int i = 0; i<proTab.length; i++){
-			temPro[i] = proTab[proTab.length-1][i];
+			temPro[i] = proTab[facture][i];
 
 		}
 		temPro[temPro.length-1]=produit;
